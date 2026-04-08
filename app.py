@@ -58,6 +58,26 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
+
+
+@app.route('/create_user', methods=['POST'])
+@login_required
+def create_user():
+    username = request.form['username']
+    password = request.form['password']
+    hashed_pw = generate_password_hash(password)
+    cur = mysql.connection.cursor()
+    try:
+        cur.execute("INSERT INTO usuarios (username, password) VALUES (%s, %s)", (username, hashed_pw))
+        mysql.connection.commit()
+        flash(f'Usuario {username} creado.', 'success')
+    except:
+        flash('Error: El usuario ya existe.', 'danger')
+    finally:
+        cur.close()
+    return redirect(url_for('index'))
+
+
 # ==========================================
 # RUTAS PROTEGIDAS (Añadir @login_required)
 # ==========================================
