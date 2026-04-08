@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva ficha</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+</head>
+<body>
+    <header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+        <form action="/add_ficha" method="post">
+            <input type="number" name="id_estudiante" id="id_estudiante" placeholder="ID de estudiante">
+
+            <select name="grado" id="grado">
+                <option  value="" disabled selected hidden>Grado</option>
+                <option  value="4°">4°</option>
+                <option  value="5°">5°</option>
+                <option  value="6°">6°</option>
+            </select>
+
+            <select name="tecnica" id="tecnica" >
+                <option value="" disabled selected hidden>Tecnica</option>
+                <option  class="tecnica" value="Desarrollo y Administracion de Aplicaciones Informaticas">Desarrollo y Administracion de Aplicaciones Informaticas</option>
+                <option  value="Gestion Administrativa y Tributaria">Gestion Administrativa y Tributaria</option>
+                <option  value="Comercio y Mercadeo">Comercio y Mercadeo</option>
+                <option  value="Servicios Gastronomicos">Servicios Gastronomicos</option>
+                <option  value="Electronica">Electronica</option>
+                <option  value="Electricidad">Electricidad</option>
+                <option  value="Refrigeracion y Acondicionamiento de aires">Refrigeracion y Acondicionamiento de aires</option>
+            </select>
+
+            <input type="date" id="fecha" name="fecha" placeholder="Fecha">
+
+            <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
+            
+            <input type="submit" value="Registrar">
+        </form>
+</body>
+</html>

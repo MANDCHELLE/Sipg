@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas</title>
+    <link rel="stylesheet" href="/static/CSS/tablestyle.css">
+</head>
+<body>
+
+
+      <header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+
+
+
+               <table class="table" border="1" style="border-collapse: collapse;">
+  <thead>
+    <tr style="background-color: aliceblue;">
+      <th scope="col">ID</th>
+      <th scope="col">ID de estudiante</th>
+      <th scope="col">Citado</th>
+      <th scope="col">Contacto</th>
+      <th scope="col">Nombre del psicólogo</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hora</th>
+      <th scope="col">Motivo</th>
+      <th scope="col">Grado</th>
+      <th scope="col">Tecnica</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {%for cita in citas%}
+    <tr>
+        <td>{{cita.id}}</td>
+        <td>{{cita.id_estudiante}}</td>
+        <td>{{cita.citado}}</td>
+        <td>{{cita.contacto}}</td>
+        <td>{{cita.nombre_psicologo}}</td>
+        <td>{{cita.fecha}}</td>
+        <td>{{cita.hora}}</td>
+        <td>{{cita.motivo}}</td>
+        <td>{{cita.grado}}</td>
+      <td>
+        <a href="/edit_cita/{{cita.id}}">Editar</a>
+        <a href="/delete_cita/{{cita.id}}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+ </tbody>
+        </table>
+</body>
+</html>

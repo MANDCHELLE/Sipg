@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edicion de cita</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+</head>
+<body>
+        <form action="/edit_cita/{{cita[0]}}" method="post">
+        <input type="number" name="id_estudiante" placeholder="ID del estudiante" required value="{{cita[1]}}">
+        <input type="text" name="citado" placeholder="Citado" required value="{{cita[3]}}">
+        <input type="text" name="contacto" placeholder="Numero de citado" maxlength="11" value="{{cita[4]}}">
+        <input type="text" name="nombre_psicologo" placeholder="Nombre del psicologo" required value="{{cita[5]}}">
+        <input type="date" name="fecha" placeholder="Fecha" required value="{{cita[6]}}">
+        <input type="time" name="hora" placeholder="Hora" required value="{{cita[7]}}">
+        <textarea name="motivo" placeholder="Motivo" required>{{cita[8]}}</textarea>
+        <select name="grado" id="grado">
+            <option value="" disabled selected hidden>Grado</option>
+            <option value= "4°" {% if cita[9] == "4°" %} selected {% endif %}>4°</option>
+            <option value="5°" {% if cita[9] == "5°" %} selected {% endif %}>5°</option>
+            <option value="6°" {% if cita[9] == "6°" %} selected {% endif %}>6°</option>
+        </select>
+        
+        <select name="tecnica" id="tecnica">
+            <option value="" disabled selected hidden>Técnica</option>
+            <option  class="tecnica" value="Desarrollo y Administracion de Aplicaciones Informaticas" {% if cita[10] == "Desarrollo y Administracion de Aplicaciones Informaticas" %} selected {% endif %} >Desarrollo y Administracion de Aplicaciones Informaticas</option>
+                <option  value="Gestion Administrativa y Tributaria" {% if cita[10] == "Gestion Administrativa y Tributaria" %} selected {% endif %}>Gestion Administrativa y Tributaria</option>
+                <option  value="Comercio y Mercadeo" {% if cita[10] == "Comercio y Mercadeo" %} selected {% endif %}>Comercio y Mercadeo</option>
+                <option  value="Servicios Gastronomicos" {% if cita[10] == "Servicios Gastronomicos" %} selected {% endif %}>Servicios Gastronomicos</option>
+                <option  value="Electronica" {% if cita[10] == "Electronica" %} selected {% endif %}>Electronica</option>
+                <option  value="Electricidad" {% if cita[10] == "Electricidad" %} selected {% endif %}>Electricidad</option>
+                <option  value="Refrigeracion y Acondicionamiento de aires" {% if cita[10] == "Refrigeracion y Acondicionamiento de aires" %} selected {% endif %}>Refrigeracion y Acondicionamiento de aires</option> 
+        </select>
+        <button type="submit">Actualizar cita</button>
+    </form>
+</body>
+</html>
