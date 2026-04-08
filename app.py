@@ -63,6 +63,10 @@ def logout():
 @app.route('/create_user', methods=['POST'])
 @login_required
 def create_user():
+    if session.get('username') != 'admin':
+    return redirect(url_for('index'))
+
+
     username = request.form['username']
     password = request.form['password']
     hashed_pw = generate_password_hash(password)
@@ -78,6 +82,16 @@ def create_user():
     return redirect(url_for('index'))
 
 
+@app.route('/delete_user/<int:id>')
+def delete_user(id):
+    if session.get('username') != 'admin':
+        return redirect(url_for('index'))
+
+    cur = mysql.connection.cursor()
+    cur.execute('DELETE FROM usuarios WHERE id=%s', (id,))
+    mysql.connection.commit()
+    cur.close()
+    return redirect(url_for('index'))
 # ==========================================
 # RUTAS PROTEGIDAS (Añadir @login_required)
 # ==========================================
