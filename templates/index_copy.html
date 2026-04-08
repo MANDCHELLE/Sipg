@@ -53,19 +53,20 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Correo</th>
+                <th>Contraseña</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
+         {% for dato in dato %}
             <tr>
                 <td>{{dato.username}}</td>
                 <td>{{dato.password}}</td>
                 <td>
-                    <a href="/edit/{{dato.id}}" class="btn btn-primary">Editar</a>
-                    <a href="/delete/{{dato.id}}" class="btn btn-danger">Eliminar</a>
+                    <a href="/delete_user/{{dato.id}}" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
     </table>
 
