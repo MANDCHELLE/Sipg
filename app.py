@@ -64,7 +64,7 @@ def logout():
 @login_required
 def create_user():
     if session.get('username') != 'admin':
-    return redirect(url_for('index'))
+        return redirect(url_for('index'))
 
 
     username = request.form['username']
