@@ -232,3 +232,19 @@ color:white;
 td button:last-child:hover{
 transform:scale(1.05);
 }
+
+
+/* footer */
+footer img{
+    max-width: 120px;
+}
+
+footer div{
+    display: flex;
+    align-items: center;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+} 
