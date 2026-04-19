@@ -1,0 +1,328 @@
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+
+body{
+background:#f4f2ed;
+color:#333;
+line-height:1.6;
+width: 100%;
+}
+
+/* HEADER */
+
+header{
+background: rgba(255, 255, 255, 0.2); 
+backdrop-filter: blur(10px);
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+/* MENU */
+
+.menu{
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+justify-content:center;
+gap:18px;
+list-style:none;
+padding:15px 20px;
+max-width:1300px;
+margin:auto;
+}
+
+/* LOGO */
+
+.brand img{
+height:55px;
+margin-right:10px;
+}
+
+/* LINKS */
+
+.menu a{
+text-decoration:none;
+color:#453e74;
+font-size:14px;
+font-weight:600;
+padding:6px 10px;
+border-radius:6px;
+transition:0.25s;
+}
+
+.menu a:hover{
+background:#ece9ff;
+color:#2f2a57;
+}
+
+/* BOTON LOGOUT */
+
+.logout-btn{
+background:#7a4e2d;
+color:white !important;
+padding:6px 12px;
+border-radius:6px;
+}
+
+.logout-btn:hover{
+background:#5c3a22;
+}
+
+/* BANNER */
+
+body > img{
+width:100%;
+height:240px;
+object-fit:cover;
+display:block;
+}
+
+/* DESCRIPCION */
+
+.desc{
+max-width:900px;
+margin:30px auto;
+text-align:center;
+font-size:15px;
+color:#4f7d5c;
+padding:0 20px;
+}
+
+/* BOTON BANNER */
+
+.banner{
+display:flex;
+justify-content:center;
+margin-bottom:40px;
+}
+
+.banner-button{
+background:linear-gradient(135deg,#453e74,#2f2a57);
+color:white;
+padding:12px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.banner-button:hover{
+transform:scale(1.05);
+}
+
+/* SECCION USUARIOS */
+
+.usuarios{
+max-width:1100px;
+margin:40px auto;
+padding:20px;
+display:grid;
+grid-template-columns:320px 1fr;
+gap:40px;
+}
+
+/* TITULO */
+
+.usuarios h2{
+grid-column:1/-1;
+text-align:center;
+color:#3a5f4b;
+margin-bottom:10px;
+}
+
+/* FORMULARIO */
+
+.form-box{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+border:1px solid #eee;
+}
+
+.form-box input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.form-box input:focus{
+outline:none;
+border-color:#8fb3c9;
+}
+
+/* BOTON REGISTRAR */
+
+.form-box button{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:linear-gradient(135deg,#7a4e2d,#5c3a22);
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.form-box button:hover{
+transform:translateY(-2px);
+}
+
+/* TABLA */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* ENCABEZADOS */
+
+th{
+background:#3a5f4b;
+color:white;
+padding:14px;
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+/* CELDAS */
+
+td{
+padding:12px;
+border-bottom:1px solid #eee;
+font-size:14px;
+}
+
+/* FILA HOVER */
+
+tr:hover{
+background:#f7f9f8;
+}
+
+/* BOTONES TABLA */
+
+.btn-danger{
+background:#a05a3c;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+text-decoration:none;
+font-size:13px;
+}
+
+.btn-danger:hover{
+background:#7a4e2d;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:50px;
+background:white;
+border-top:1px solid #ddd;
+padding:20px;
+display:flex;
+justify-content:center;
+}
+
+footer div{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+footer img{
+height:45px;
+}
+
+a{
+    text-decoration: none;
+    color: #5c3a22;
+    font-weight: 600;
+}
+
+/* Buscador limpio */
+#buscador {
+    display: block;
+    margin: 0 auto 30px auto;
+    width: 380px;
+
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #cfcfcf;
+    background: transparent;
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+
+/* DASHBOARD */
+
+.dashboard{
+max-width:1200px;
+margin:40px auto;
+padding:20px;
+text-align:center;
+}
+
+.dashboard h2{
+color:#3a5f4b;
+margin-bottom:25px;
+}
+
+/* CONTENEDOR TARJETAS */
+
+.dashboard-cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+
+/* TARJETAS */
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+border-left:6px solid #453e74;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+.card h3{
+font-size:16px;
+color:#555;
+margin-bottom:10px;
+}
+
+/* NUMEROS */
+
+.card-number{
+font-size:28px;
+font-weight:bold;
+color:#453e74;
+}
