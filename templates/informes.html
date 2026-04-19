@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Psicologico</title>
+    <link rel="stylesheet" href="../static/CSS/informes.css">
+</head>
+<body class="body_informes">
+    <header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/estudiantes">Estudiantes</a></li>
+                <li><a href="/add_estudiante">Agregar Estudiante</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                <li><a href="/informes_fichas">Informes</a></li>
+                <li><a href="/add_informe">Nuevo Informe</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+
+    <div class="informe">
+    {% for dato in dato %}
+        <h1>Informe Psicologico</h1>
+        <p><strong>Nombre:</strong> <h2>{{ dato.primer_nombre }} {{ dato.primer_apellido }}</h2></p>
+        <p><strong>Grado:</strong> {{ dato.grado }}</p>
+        <p><strong>Técnica:</strong> {{ dato.tecnica }}</p>
+        <p><strong>Estado del caso:</strong> {{ dato.estado_caso }}</p>
+        <p><strong>Motivo de consulta:</strong> {{ dato.motivo }}</p>
+        <p><strong>Observaciones:</strong> {{ dato.observaciones }}</p>
+        <p><strong>Recomendaciones:</strong> {{ dato.recomendaciones }}</p>
+    {% endfor %}
+    </div>
+</body>
+</html>

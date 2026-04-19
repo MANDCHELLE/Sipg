@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes</title>
+    <link rel="stylesheet" href="/static/CSS/style copy.css">
+</head>
+
+<header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/estudiantes">Estudiantes</a></li>
+                <li><a href="/add_estudiante">Agregar Estudiante</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                <li><a href="/informes_fichas">Informes</a></li>
+                <li><a href="/add_informe">Nuevo Informe</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+<body>
+    <table class="table" border="1" style="border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Primer Nombre</th>
+                <th>Primer Apellido</th>
+                <th>Grado</th>
+                <th>Técnica</th>
+                <th>Acciones</th>
+            </tr>
+    </thead>
+    <tbody>
+        {% for dato in dato %}
+        <tr>
+            <td>{{dato.id}}</td>
+            <td>{{dato.primer_nombre}}</td>
+            <td>{{dato.primer_apellido}}</td>
+            <td>{{dato.grado}}</td>
+            <td>{{dato.tecnica}}</td>
+            <td>
+                <a href="/delete_estudiante/{{dato.id}}">Eliminar</a>
+                <a href="/edit_estudiante/{{dato.id}}">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+</body>
+</html>

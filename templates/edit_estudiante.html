@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo estudiante</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+</head>
+<body>
+
+<header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/estudiantes">Estudiantes</a></li>
+                <li><a href="/add_estudiante">Agregar Estudiante</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                <li><a href="/informes_fichas">Informes</a></li>
+                <li><a href="/add_informe">Nuevo Informe</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+
+
+
+
+    <form action="/edit_estudiante/{{dato.id}}" method="post">
+        <h2>Editar estudiante</h2>
+        <input type="number" placeholder="ID de Estudiante" name="id_estudiante" value="{{dato.id}}" required>
+        <input type="text" placeholder="Primer nombre" name="primer_nombre" required  value="{{dato.primer_nombre}}">
+        <input type="text" placeholder="Primer apellido" name="primer_apellido" required value="{{dato.primer_apellido}}">
+        <select name="grado" id="grado">
+            <option value="4º" {% if dato.grado == "4º" %} selected {% endif %}>4º</option>
+            <option value="5º" {% if dato.grado == "5º" %} selected {% endif %}>5º</option>
+            <option value="6º" {% if dato.grado == "6º" %} selected {% endif %}>6º</option>
+        </select>
+        <select name="tecnica" id="tecnica" required>
+                <option  class="tecnica" value="Desarrollo y Administracion de Aplicaciones Informaticas">Desarrollo y Administracion de Aplicaciones Informaticas</option>
+                <option  value="Gestion Administrativa y Tributaria" {% if dato.tecnica == "Gestion Administrativa y Tributaria" %} selected {% endif %}>Gestion Administrativa y Tributaria</option>
+                <option  value="Comercio y Mercadeo" {% if dato.tecnica == "Comercio y Mercadeo" %} selected {% endif %}>Comercio y Mercadeo</option>
+                <option  value="Servicios Gastronomicos" {% if dato.tecnica == "Servicios Gastronomicos" %} selected {% endif %}>Servicios Gastronomicos</option>
+                <option  value="Electronica" {% if dato.tecnica == "Electronica" %} selected {% endif %}>Electronica</option>
+                <option  value="Electricidad" {% if dato.tecnica == "Electricidad" %} selected {% endif %}>Electricidad</option>   
+                <option  value="Refrigeracion y Acondicionamiento de aires" {% if dato.tecnica == "Refrigeracion y Acondicionamiento de aires" %} selected {% endif %}>Refrigeracion y Acondicionamiento de aires</option> 
+        </select>
+        <input type="submit" value="Registrar">
+    </form>
+</body>
+</html>

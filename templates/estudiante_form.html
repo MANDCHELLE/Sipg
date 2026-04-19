@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo estudiante</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+</head>
+<body>
+
+<header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/estudiantes">Estudiantes</a></li>
+                <li><a href="/add_estudiante">Agregar Estudiante</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                <li><a href="/informes_fichas">Informes</a></li>
+                <li><a href="/add_informe">Nuevo Informe</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+
+
+
+
+    <form action="/add_estudiante" method="post">
+        <h2>Registrar nuevo estudiante</h2>
+        <input type="number" placeholder="ID de Estudiante" name="id_estudiante">
+        <input type="text" placeholder="Primer nombre" name="primer_nombre" required>
+        <input type="text" placeholder="Primer apellido" name="primer_apellido" required>
+        <select name="grado" id="grado">
+            <option value="" disabled selected hidden>Grado</option>
+            <option value="4º">4º</option>
+            <option value="5º">5º</option>
+            <option value="6º">6º</option>
+        </select>
+        <select name="tecnica" id="tecnica" required>
+                <option value="" disabled selected hidden>Técnica</option>
+                <option  class="tecnica" value="Desarrollo y Administracion de Aplicaciones Informaticas">Desarrollo y Administracion de Aplicaciones Informaticas</option>
+                <option  value="Gestion Administrativa y Tributaria">Gestion Administrativa y Tributaria</option>
+                <option  value="Comercio y Mercadeo">Comercio y Mercadeo</option>
+                <option  value="Servicios Gastronomicos">Servicios Gastronomicos</option>
+                <option  value="Electronica">Electronica</option>
+                <option  value="Electricidad">Electricidad</option>
+                <option  value="Refrigeracion y Acondicionamiento de aires">Refrigeracion y Acondicionamiento de aires</option> 
+        </select>
+        <input type="submit" value="Registrar">
+    </form>
+</body>
+</html>

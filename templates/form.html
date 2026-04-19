@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva ficha</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+</head>
+<body>
+<header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/estudiantes">Estudiantes</a></li>
+                <li><a href="/add_estudiante">Agregar Estudiante</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                <li><a href="/informes_fichas">Informes</a></li>
+                <li><a href="/add_informe">Nuevo Informe</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+        <form action="/add_ficha" method="post">
+            <h2>Registrar nueva ficha</h2>
+            <input type="number" name="id_estudiante" id="id_estudiante" placeholder="ID de estudiante">
+
+
+            <input type="date" id="fecha" name="fecha" placeholder="Fecha">
+
+            <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
+            
+            <input type="submit" value="Registrar">
+        </form>
+</body>
+</html>

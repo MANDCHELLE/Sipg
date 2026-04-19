@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Departamento de Psicología</title>
+<link rel="stylesheet" href="../static/CSS/informes.css">
+</head>
+
+<body>
+
+<header>
+
+            <ul class="menu">
+                <li><a href="/" class="brand"> <img src="/static/img/Logo sin fondo 2.png" alt=""></a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/estudiantes">Estudiantes</a></li>
+                <li><a href="/add_estudiante">Agregar Estudiante</a></li>
+                <li><a href="/table">Fichas</a></li>
+                <li><a href="/cita">Citas</a></li>
+                <li><a href="/add_ficha">Nueva Ficha</a></li>
+                <li><a href="/add_cita">Nueva Cita</a></li>
+                <li><a href="/informes_fichas">Informes</a></li>
+                <li><a href="/add_informe">Nuevo Informe</a></li>
+                {% if session.get('username') %}
+                    <li><a href="/logout" class="logout-btn">Cerrar Sesión ({{ session['username'] }})</a></li>
+                {% endif %}
+            </ul>
+
+</header>
+
+<h3 class="titulo">Registro de casos estudiantiles</h3>
+
+
+
+<section class="contenedor">
+
+{% for dato in dato %}
+<div class="ficha">
+<h2>{{ dato.primer_nombre }} {{ dato.primer_apellido }}</h2>
+<p><strong>Grado:</strong> {{ dato.grado }}</p>
+<p><strong>Técnica:</strong> {{ dato.tecnica }}</p>
+<p><strong>Estado:</strong> <span class="estado">{{ dato.estado_caso }}</span></p>
+
+<a href="/informes/{{dato.id}}" class="boton">Ver informe</a>
+<a href="/delete_informe/{{dato.id}}" class="boton eliminar">Eliminar</a>
+</div>
+{% endfor %}
+
+</section>
+
+
+</body>
+</html>
